@@ -1,0 +1,50 @@
+.main-inputs {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+
+  label {
+    font-size: $fz-label-sm;
+    font-weight: 700;
+    color: $neutral-smokey-gray;
+    letter-spacing: 2px;
+
+    &::selection {
+      background: $primary-color;
+      color: $neutral-white;
+    }
+  }
+
+  input {
+    font-size: $fz-input-sm;
+    font-weight: 800;
+    color: $neutral-off-black;
+
+    width: 4.7em;
+    border: 1px solid $neutral-gray;
+    border-radius: 5px;
+
+    padding: 12px;
+
+    &:focus {
+      outline: none;
+      border-color: $primary-color;
+      caret-color: $primary-color;
+    }
+
+    &::selection {
+      background: $primary-color;
+      color: $neutral-white;
+    }
+  }
+
+  input::-webkit-outer-spin-button,
+  input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+  }
+
+  input[type=number] {
+    -moz-appearance: none;
+    appearance: none;
+  }
+}

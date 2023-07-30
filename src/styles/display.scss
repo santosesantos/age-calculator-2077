@@ -1,0 +1,29 @@
+.display {
+  font-weight: 800;
+  font-style: italic;
+  font-size: $fz-title-sm;
+
+  padding: 16px;
+
+  color: $neutral-off-black;
+
+  h1 {
+    display: flex;
+    flex-wrap: nowrap;
+    gap: .2em;
+
+    &::selection {
+      background: $primary-color;
+      color: $neutral-white;
+    }
+  }
+
+  span {
+    color: $primary-color;
+
+    &::selection {
+      background: $primary-color;
+      color: $neutral-white;
+    }
+  }
+}

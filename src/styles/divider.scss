@@ -1,0 +1,28 @@
+.divider {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
+  img {
+    position: absolute;
+    align-self: center;
+  
+    background-color: $primary-color;
+    object-fit: contain;
+  
+    width: 2rem;
+    height: 2rem;
+    padding: 18px;
+  
+    border-radius: 2rem;
+
+    &::selection {
+      background: $primary-color;
+      color: $neutral-white;
+    }
+  }
+
+  hr {
+    border: 1px solid $neutral-gray;
+  }
+}
