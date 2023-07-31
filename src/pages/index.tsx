@@ -21,14 +21,20 @@ export default function Home() {
       </Head>
       <div className={`main-container ${poppins.className}`}>
         <div className="inputs-container">
-          <Input title="DAY" type="day" digits={2}/>
-          <Input title="MONTH" type="month" digits={2}/>
+          <Input title="DAY" type="day" digits={2} />
+          <Input title="MONTH" type="month" digits={2} />
           <Input title="YEAR" type="year" />
         </div>
         <ErrorDisplay />
         <Divider />
         <Display />
       </div>
+      <footer>
+        <div className={`${poppins.className}`}>
+          Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>.
+          Coded by <a href="https://github.com/santosesantos" target="_blank">Santos e Santos</a>.
+        </div>
+      </footer>
     </AgeCalculatorProvider>
   );
 }

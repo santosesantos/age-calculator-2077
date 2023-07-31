@@ -51,6 +51,21 @@ body {
   margin-bottom: -40px;
 }
 
+footer {
+  position: absolute;
+  bottom: 0;
+
+  background-color: $neutral-white;
+  left: 0;
+  width: 100vw;
+  padding: 5px 8px;
+
+  display: flex;
+  justify-content: flex-end;
+
+  font-size: 14px;
+}
+
 @media (min-width: 992px) {
   .main-container {
     gap: 1.3rem;
