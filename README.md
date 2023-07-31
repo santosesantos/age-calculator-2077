@@ -33,8 +33,8 @@ Users should be able to:
 
 ### Links
 
-- Solution URL: [Solution](https://your-solution-url.com)
-- Live Site URL: [Age Calculator 2077](https://your-live-site-url.com)
+- Solution URL: [Solution](https://www.frontendmentor.io/solutions/age-calculator-nextjs-and-sass-bUhagAyd0h)
+- Live Site URL: [Age Calculator 2077](https://santosesantos.github.io/age-calculator-2077/)
 
 ## My process
 
