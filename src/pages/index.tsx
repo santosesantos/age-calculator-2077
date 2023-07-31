@@ -17,6 +17,7 @@ export default function Home() {
     <AgeCalculatorProvider>
       <Head>
         <title>Age Calculator 2077</title>
+        <link rel="icon" type="image/x-icon" href="./favicon.ico" />
       </Head>
       <div className={`main-container ${poppins.className}`}>
         <div className="inputs-container">
