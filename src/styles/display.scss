@@ -1,5 +1,4 @@
 .display {
-  font-weight: 800;
   font-style: italic;
   font-size: $fz-title-sm;
 
@@ -11,6 +10,7 @@
     display: flex;
     flex-wrap: nowrap;
     gap: .2em;
+    font-weight: 800;
 
     &::selection {
       background: $primary-color;
@@ -20,10 +20,15 @@
 
   span {
     color: $primary-color;
+    font-weight: 800;
 
     &::selection {
       background: $primary-color;
       color: $neutral-white;
     }
+  }
+
+  @media (min-width: 600px) {
+    font-size: $fz-title;
   }
 }

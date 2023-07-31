@@ -47,4 +47,24 @@
     -moz-appearance: none;
     appearance: none;
   }
+
+  @media (min-width: 600px) {
+    label {
+      font-size: $fz-label;
+    }
+
+    input {
+      font-size: $fz-input;
+    }
+  }
+}
+
+.main-inputs.error {
+  label {
+    color: $secondary-color;
+  }
+
+  input {
+    border-color: $secondary-color;
+  }
 }

@@ -1,0 +1,17 @@
+.error-display {
+  color: $secondary-color;
+  font-size: $fz-error-sm;
+  font-style: italic;
+
+  position: relative;
+  margin: -16px 0;
+  
+  h2 {
+    font-weight: 400;
+  }
+
+  @media (min-width: 600px) {
+    font-size: $fz-error;
+    margin: 8px 0;
+  }
+}

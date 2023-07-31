@@ -4,6 +4,7 @@ import Input from "@/components/Input";
 import { Poppins } from "next/font/google";
 import { AgeCalculatorProvider } from "@/contexts/AgeCalculatorContext";
 import Head from "next/head";
+import ErrorDisplay from "@/components/ErrorDisplay";
 
 const poppins = Poppins({
   weight: ["400", "700", "800"],
@@ -12,7 +13,6 @@ const poppins = Poppins({
 });
 
 export default function Home() {
-
   return (
     <AgeCalculatorProvider>
       <Head>
@@ -24,6 +24,7 @@ export default function Home() {
           <Input title="MONTH" type="month" digits={2}/>
           <Input title="YEAR" type="year" />
         </div>
+        <ErrorDisplay />
         <Divider />
         <Display />
       </div>
