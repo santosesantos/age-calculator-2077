@@ -1,38 +1,121 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Frontend Mentor - Age calculator app solution
 
-## Getting Started
+This is a solution to the [Age calculator app challenge on Frontend Mentor](https://www.frontendmentor.io/challenges/age-calculator-app-dF9DFFpj-Q). Frontend Mentor challenges help you improve your coding skills by building realistic projects. 
 
-First, run the development server:
+## Table of contents
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
+- [Overview](#overview)
+  - [The challenge](#the-challenge)
+  - [Screenshot](#screenshot)
+  - [Links](#links)
+- [My process](#my-process)
+  - [Built with](#built-with)
+  - [What I learned](#what-i-learned)
+  - [Continued development](#continued-development)
+  - [Useful resources](#useful-resources)
+- [Author](#author)
+
+## Overview
+
+### The challenge
+
+Users should be able to:
+
+- View an age in years, months, and days after insert a valid date through the form
+- Receive validation errors if:
+  - The year is in the future
+- View the optimal layout for the interface depending on their device's screen size
+- See hover and focus states for all interactive elements on the page
+
+### Screenshot
+
+![](./screenshot.png)
+
+### Links
+
+- Solution URL: [Solution](https://your-solution-url.com)
+- Live Site URL: [Age Calculator 2077](https://your-live-site-url.com)
+
+## My process
+
+### Built with
+
+- Semantic HTML5 markup
+- CSS custom properties
+- Flexbox
+- Mobile-first workflow
+- [React](https://reactjs.org/) - JS library
+- [Next.js](https://nextjs.org/) - React framework
+- [Sass](https://sass-lang.com/) - For styles
+
+### What I learned
+
+In need to create a logic to calculate the age, I took approximated values in milliseconds for a year, month and day. This part of the code looks cool, though.
+
+```js
+useEffect(() => {
+  // Logic to calculate age
+  const ageInMs = Date.now().valueOf() - inputDate.valueOf();
+
+  if (ageInMs > 0) {
+    // Division to calculate the integer number of YEARS from milliseconds
+    setAgeYears(Math.floor(ageInMs / 31556926000));
+    // Division to calculate the integer number of MONTHS from the rest in milliseconds of years operation
+    setAgeMonths(Math.floor((ageInMs % 31556926000) / 2629743833.3));
+    // Division to calculate the integer number of DAYS from the rest in milliseconds of months operation
+    setAgeDays(Math.floor(((ageInMs % 31556926000) % 2629743833.3) / 86400000));
+  } else {
+    setAgeYears(NaN);
+    setAgeMonths(NaN);
+    setAgeDays(NaN);
+  }
+}, [inputDate]);
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Another piece of code that I'm proud of is this one, that I "translated" an algorithm that I've found to TS. This is for the input validation in case of different months and leap years.
 
-You can start editing the page by modifying `pages/index.tsx`. The page auto-updates as you edit the file.
+```js
+function getMaximumDays() {
+  const monthsWith31 = [0, 2, 4, 6, 7, 9, 11];
+  const monthsWith30 = [3, 5, 8, 10];
+  let maximumDays;
 
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.ts`.
+  // Verification for the max value for day input according to the current month
+  if (monthsWith31.includes(month - 1))
+    maximumDays = 31;
+  else if (monthsWith30.includes(month - 1))
+    maximumDays = 30;
+  else { /* Verification if it is a leap year */
+    if (year % 4 === 0) {
+      if (year % 100 === 0) {
+        if (year % 400 === 0) {
+          maximumDays = 29;
+        } else
+          maximumDays = 28;
+      } else
+        maximumDays = 29;
+    } else
+      maximumDays = 28;
+  }
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
+  return maximumDays;
+}
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+### Continued development
 
-## Learn More
+In the next challenge I intend to use styled-components for styling and, maybe, App Router API in Next.js.
 
-To learn more about Next.js, take a look at the following resources:
+### Useful resources
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+- [How to disable arrows from number input](https://www.geeksforgeeks.org/how-to-disable-arrows-from-number-input/)
+- [Avoid enter dot in input field](https://stackoverflow.com/questions/70303820/avoid-enter-dot-in-input-field)
+- [Context placement in the code](https://github.com/vercel/next.js/discussions/14788)
+- [Year, month and day in ms](https://www.advancedconverter.com/unit-conversions/time-conversion/years-to-milliseconds)
+- [Spinner animations](https://blog.logrocket.com/spinners-notifications-react-app/#adding-modern-spinners-react-spinners)
+- [Selection in CSS](https://www.w3schools.com/howto/howto_css_text_selection.asp)
+- [Determination of a leap year](https://learn.microsoft.com/en-us/office/troubleshoot/excel/determine-a-leap-year)
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+## Author
 
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+- Frontend Mentor - [@santosesantos](https://www.frontendmentor.io/profile/santosesantos)
