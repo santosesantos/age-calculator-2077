@@ -19,15 +19,17 @@ export default function Home() {
         <title>Age Calculator 2077</title>
         <link rel="icon" type="image/x-icon" href="./favicon.ico" />
       </Head>
-      <div className={`main-container ${poppins.className}`}>
-        <div className="inputs-container">
-          <Input title="DAY" type="day" digits={2} />
-          <Input title="MONTH" type="month" digits={2} />
-          <Input title="YEAR" type="year" />
+      <div className="main-container">
+        <div className={`calculator-container ${poppins.className}`}>
+          <div className="inputs-container">
+            <Input title="DAY" type="day" digits={2} />
+            <Input title="MONTH" type="month" digits={2} />
+            <Input title="YEAR" type="year" />
+          </div>
+          <ErrorDisplay />
+          <Divider />
+          <Display />
         </div>
-        <ErrorDisplay />
-        <Divider />
-        <Display />
       </div>
       <footer>
         <div className={`${poppins.className}`}>
