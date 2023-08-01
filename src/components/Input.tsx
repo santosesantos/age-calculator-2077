@@ -49,7 +49,7 @@ export default function Input(props: IProps) {
         case "month":
           realValue = parsedValue > 12 ? 12 : parsedValue;
           setMonth(realValue);
-          maximumDays = getMaximumDays();
+          maximumDays = getMaximumDays(realValue);
           if (day > maximumDays)
             setDay(maximumDays);
           break;
@@ -63,15 +63,18 @@ export default function Input(props: IProps) {
     }
   }
 
-  function getMaximumDays() {
+  function getMaximumDays(currentMonth: number = month) {
+    if (!currentMonth)
+      return 31;
+    
     const monthsWith31 = [0, 2, 4, 6, 7, 9, 11];
     const monthsWith30 = [3, 5, 8, 10];
     let maximumDays;
 
     // Verification for the max value for day input according to the current month
-    if (monthsWith31.includes(month - 1))
+    if (monthsWith31.includes(currentMonth - 1))
       maximumDays = 31;
-    else if (monthsWith30.includes(month - 1))
+    else if (monthsWith30.includes(currentMonth - 1))
       maximumDays = 30;
     else { /* Verification if it is a leap year */
       if (year % 4 === 0) {
