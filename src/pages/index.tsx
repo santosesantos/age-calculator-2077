@@ -34,7 +34,7 @@ export default function Home() {
       <footer>
         <div className={`${poppins.className}`}>
           Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>.
-          Coded by <a href="https://github.com/santosesantos" target="_blank">Santos e Santos</a>.
+          Coded by <a href="https://santosesantos.github.io/my-website/" target="_blank">Santos e Santos</a>.
         </div>
       </footer>
     </AgeCalculatorProvider>
